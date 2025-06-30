@@ -1,0 +1,8 @@
+input/*
+output/*
+results/*
+
+# 폴더 유지를 위한 예외
+!input/.keep
+!output/.keep
+!results/.keep
