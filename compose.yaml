@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  centerline:
+    tty: true           # <- TTY 활성화
+    stdin_open: true    # <- 인터랙티브 입력 허용
+    build: .
+    container_name: vessel_model
+    ports:
+      - "8001:8001"           # host:container
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]   # NVIDIA Container Toolkit 필요
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+ 

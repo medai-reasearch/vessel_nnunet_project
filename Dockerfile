@@ -13,6 +13,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install nnunetv2
+
+RUN git clone https://github.com/MIC-DKFZ/nnUNet.git
+
 # 작업 디렉토리 설정
 WORKDIR /app
 
