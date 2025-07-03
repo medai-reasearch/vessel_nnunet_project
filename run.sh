@@ -3,7 +3,8 @@
 FOLDER_NAME=$(basename "$PWD")
 IMAGE_NAME="$FOLDER_NAME"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-CONTAINER_NAME="${FOLDER_NAME}_${TIMESTAMP}"
+#CONTAINER_NAME="${FOLDER_NAME}_${TIMESTAMP}"
+CONTAINER_NAME="$FOLDER_NAME"
 
 DOCKERFILE="Dockerfile"  # 기본 Dockerfile (prod)
 # 운영체제 구분
@@ -29,5 +30,6 @@ echo "[*] 개발모드: 전체 디렉토리 마운트"
 docker run -it --rm \
     --gpus all \
     --name "$CONTAINER_NAME" \
+    --network my_microservice_net \
     -v "$HOST_DIR":/app \
     "$IMAGE_NAME"
